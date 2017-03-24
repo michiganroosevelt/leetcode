@@ -1,5 +1,7 @@
 package roosevelt.michigan.com.easy;
 
+import roosevelt.michigan.com.common.TreeNode;
+
 /**
  * Invert a binary tree.
  * 
@@ -20,16 +22,6 @@ public class InvertBinaryTree {
 		invertTree(root.right);
 
 		return root;
-	}
-
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
 	}
 
 }

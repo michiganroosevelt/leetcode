@@ -4,7 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import roosevelt.michigan.com.easy.InvertBinaryTree.TreeNode;
+import roosevelt.michigan.com.common.TreeNode;
+
 
 
 public class InvertBinaryTreeTest {
@@ -26,9 +27,9 @@ public class InvertBinaryTreeTest {
 	 */
 	@Test
 	public void testBalancedTree() {
-		TreeNode input = solution.new TreeNode(1);
-		TreeNode node1 = solution.new TreeNode(2);
-		TreeNode node2 = solution.new TreeNode(3);
+		TreeNode input = new TreeNode(1);
+		TreeNode node1 = new TreeNode(2);
+		TreeNode node2 = new TreeNode(3);
 		input.right = node1;
 		input.left = node2;
 

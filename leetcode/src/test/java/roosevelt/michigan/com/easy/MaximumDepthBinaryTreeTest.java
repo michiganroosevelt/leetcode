@@ -4,7 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import roosevelt.michigan.com.easy.MaximumDepthBinaryTree.TreeNode;
+import roosevelt.michigan.com.common.TreeNode;
+
 
 public class MaximumDepthBinaryTreeTest {
 
@@ -33,9 +34,9 @@ public class MaximumDepthBinaryTreeTest {
 	 */
 	@Test
 	public void testBalancedTree() {
-		TreeNode input = solution.new TreeNode(1);
-		TreeNode node1 = solution.new TreeNode(1);
-		TreeNode node2 = solution.new TreeNode(1);
+		TreeNode input = new TreeNode(1);
+		TreeNode node1 = new TreeNode(1);
+		TreeNode node2 = new TreeNode(1);
 		input.right = node1;
 		input.right = node2;
 
@@ -50,10 +51,10 @@ public class MaximumDepthBinaryTreeTest {
 	@Test
 	public void testRightTreeHeavy() {
 
-		TreeNode input = solution.new TreeNode(1);
-		TreeNode node1 = solution.new TreeNode(1);
-		TreeNode node2 = solution.new TreeNode(1);
-		TreeNode node3 = solution.new TreeNode(1);
+		TreeNode input = new TreeNode(1);
+		TreeNode node1 = new TreeNode(1);
+		TreeNode node2 = new TreeNode(1);
+		TreeNode node3 = new TreeNode(1);
 		input.right = node1;
 		node1.right = node2;
 		node2.right = node3;
@@ -69,7 +70,7 @@ public class MaximumDepthBinaryTreeTest {
 	@Test
 	public void testRootIsDepth() {
 
-		TreeNode input = solution.new TreeNode(1);
+		TreeNode input = new TreeNode(1);
 		int result = solution.maxDepth(input);
 
 		Assert.assertEquals(1, result);
@@ -81,10 +82,10 @@ public class MaximumDepthBinaryTreeTest {
 	@Test
 	public void testThreeNodesDepth3() {
 
-		TreeNode input = solution.new TreeNode(1);
-		TreeNode node1 = solution.new TreeNode(1);
-		TreeNode node2 = solution.new TreeNode(1);
-		TreeNode node3 = solution.new TreeNode(1);
+		TreeNode input = new TreeNode(1);
+		TreeNode node1 = new TreeNode(1);
+		TreeNode node2 = new TreeNode(1);
+		TreeNode node3 = new TreeNode(1);
 		input.left = node1;
 		input.right = node2;
 		node1.right = node3;

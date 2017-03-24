@@ -1,5 +1,7 @@
 package roosevelt.michigan.com.easy;
 
+import roosevelt.michigan.com.common.TreeNode;
+
 /**
  * 
  * Given a binary tree, find its maximum depth.
@@ -24,16 +26,6 @@ public class MaximumDepthBinaryTree {
 		rightMax = maxDepth(root.right);
 
 		return 1 + (leftMax > rightMax ? leftMax : rightMax);
-	}
-
-	public class TreeNode {
-		int val;
-		TreeNode left;
-		TreeNode right;
-
-		TreeNode(int x) {
-			val = x;
-		}
 	}
 
 }
