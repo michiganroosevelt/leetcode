@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import roosevelt.michigan.com.easy.ValidPalindrome;
+
 public class ValidPalindromeTest {
 
 	private ValidPalindrome solution;
