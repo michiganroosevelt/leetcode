@@ -14,23 +14,23 @@ public class TwoSumTest {
 	}
 
 	@Test
-	public void testTwoSumSimpleCase() {
-		int[] nums = new int[] { 2, 7, 11, 15 };
-		int[] result = solution.twoSum(nums, 9);
+	public void testTwoSumTest() {
+		solution.add(2);
+		solution.add(3);
+		solution.add(5);
+		solution.add(10);
 
-		Assert.assertEquals(2, result.length);
-		Assert.assertEquals(0, result[0]);
-		Assert.assertEquals(1, result[1]);
+		Assert.assertEquals(true, solution.find(12));
+		Assert.assertEquals(false, solution.find(6));
+		Assert.assertEquals(true, solution.find(5));
 	}
-
+	
 	@Test
-	public void testTwoSumAnotherSimpleCase() {
-		int[] nums = new int[] { 2, 7, 11, 15 };
-		int[] result = solution.twoSum(nums, 22);
+	public void testTwoSumZero() {
+		solution.add(0);
+		solution.add(0);
 
-		Assert.assertEquals(2, result.length);
-		Assert.assertEquals(1, result[0]);
-		Assert.assertEquals(3, result[1]);
+		Assert.assertEquals(true, solution.find(0));
+
 	}
-
 }

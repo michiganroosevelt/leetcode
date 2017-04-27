@@ -21,6 +21,35 @@ package roosevelt.michigan.com.easy;
 public class IslandPerimeter {
 
 	public int islandPerimeter(int[][] grid) {
-		return -1;
+		int height = grid.length;
+		int width = grid[0].length;
+
+		int total = 0;
+		for (int i = 0; i < height; i++) {
+			for (int j = 0; j < width; j++) {
+				if( grid[i][j] != 1 ) {
+					continue;
+				}
+
+				if (i == 0 || grid[i - 1][j] == 0) {
+					total++;
+				}
+
+				if (j + 1 >= width || grid[i][j + 1] == 0) {
+					total++;
+				}
+
+				if (i + 1 >= height || grid[i + 1][j] == 0) {
+					total++;
+				}
+
+				if (j == 0 || grid[i][j - 1] == 0) {
+					total++;
+				}
+
+			}
+		}
+
+		return total;
 	}
 }

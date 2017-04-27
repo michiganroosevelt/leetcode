@@ -20,7 +20,6 @@ public class IslandPerimeterTest {
 	/**
 	 * Unit test for IslandPerimeter for the first example input
 	 */
-	@Ignore
 	@Test
 	public void testFirstExampleInput() {
 		
@@ -38,7 +37,6 @@ public class IslandPerimeterTest {
 	/**
 	 * Unit test for ReverseString for the first example input
 	 */
-	@Ignore
 	@Test
 	public void testInputLengthOne() {
 		
@@ -53,12 +51,11 @@ public class IslandPerimeterTest {
 	/**
 	 * Unit test for ReverseString for the first example input
 	 */
-	@Ignore
 	@Test
 	public void testHeightOneLengthTwo() {
 		
 		int[][] grid = new int[1][1];
-		grid[0] = new int[]{1,2};
+		grid[0] = new int[]{1,0};
 		
 		int result = solution.islandPerimeter(grid);
 

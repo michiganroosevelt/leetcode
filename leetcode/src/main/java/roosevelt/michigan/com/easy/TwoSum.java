@@ -1,42 +1,60 @@
 package roosevelt.michigan.com.easy;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 /**
+ * Design and implement a TwoSum class. It should support the following
+ * operations: add and find.
  * 
- * Given an array of integers, return indices of the two numbers such that they
- * add up to a specific target.
+ * add - Add the number to an internal data structure. find - Find if there
+ * exists any pair of numbers which sum is equal to the value.
  * 
- * You may assume that each input would have exactly one solution, and you may
- * not use the same element twice.
+ * For example,
  * 
- * 
- * Example:
- * 
- * Given nums = [2, 7, 11, 15], target = 9,
- * 
- * Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
- * 
+ * add(1); add(3); add(5); find(4) -> true find(7) -> false
  * 
  * @author soup
  *
  */
 public class TwoSum {
 
-	public int[] twoSum(int[] nums, int target) {
-		Map<Integer, Integer> valueMap = new HashMap<>();
+	private Map<Integer, Boolean> numbers;
 
-		for (int i = 0; i < nums.length; i++) {
-			int need = target - nums[i];
-			if (valueMap.containsKey(need)) {
-				return new int[] { valueMap.get(need), i };
-			} else {
-				valueMap.put(nums[i], i);
+	public TwoSum() {
+		numbers = new HashMap<>();
+	}
+
+	public void add(int number) {
+		if( numbers.containsKey(number) ) {
+			numbers.put(number, true);
+		} else {
+			numbers.put(number, false);
+		}
+	}
+
+	/**
+	 * Find if there exists any pair of numbers which sum is equal to the value.
+	 */
+	public boolean find(int value) {
+		Iterator<Integer> itr = numbers.keySet().iterator();
+
+		while (itr.hasNext()) {
+			int current = itr.next();
+			int need = value - current;
+			boolean isSame = need == current;
+
+			if( isSame && numbers.containsKey(need) && numbers.get(need) ) {
+				return true;
+			} else if( numbers.containsKey(need) && !isSame ) {
+				return true;
 			}
 		}
 
-		return null;
+		return false;
 	}
 
 }
