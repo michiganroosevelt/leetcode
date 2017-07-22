@@ -14,20 +14,59 @@ package roosevelt.michigan.com.medium;
 public class DiagonalTraverse {
 
 	public int[] findDiagonalOrder(int[][] matrix) {
-		
-		boolean readUp = true;
-		
-		
-		int iLength = matrix.length;
-		int jLength = matrix[0].length;
-		
-		
-		
-	
-		
-		
 
-		return null;
+		int rightCount = 0;
+		int downCount = 0;
+		int width = matrix.length;
+		int height = matrix[0].length;
+		int result[] = new int[height * width];
+		boolean moveUp = true;
+
+		for (int count = 0; count < height * width; count++) {
+			int i = calcIndex(width, height, rightCount);
+			int j = calcIndex(height, width, downCount);
+			if (moveUp) {
+				count = travelUp(matrix, result, count, i, j);
+				rightCount++;
+			} else {
+				count = travelDown(matrix, result, count, i, j);
+				downCount++;
+			}
+			
+			moveUp = !moveUp;
+		}
+
+		return result;
+	}
+	
+	public int calcIndex(int target, int height, int index) {
+		if (index + 1 >= target) {
+			return index - target + 1;
+		}
+		return index++;
+	}
+
+
+	public int travelDown(int[][] input, int[] result, int count, int i, int j) {
+		while (i < input.length && j >= 0) {
+			result[count] = input[i][j];
+			count++;
+			i++;
+			j--;
+		}
+
+		return count;
+	}
+
+	public int travelUp(int[][] input, int[] result, int count, int i, int j) {
+		while (j < input[0].length && i >= 0) {
+			result[count] = input[i][j];
+			count++;
+			i--;
+			j++;
+		}
+
+		return count;
 	}
 
 }

@@ -17,10 +17,10 @@ import roosevelt.michigan.com.common.ListNode;
 public class RemoveDuplicatesFromSortedList {
 
 	public ListNode deleteDuplicates(ListNode head) {
-		if( head == null ) {
+		if (head == null) {
 			return head;
 		}
-		
+
 		Set<Integer> nums = new HashSet<>();
 		ListNode node = head.next;
 		ListNode previous = head;

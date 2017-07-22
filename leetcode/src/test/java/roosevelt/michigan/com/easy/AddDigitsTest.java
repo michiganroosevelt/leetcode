@@ -20,4 +20,12 @@ public class AddDigitsTest {
 		Assert.assertEquals(2, result);
 	}
 
+	@Test
+	public void testAddDigits955() {
+		// 19 --> 10 --> 1
+		int result = solution.addDigits(955);
+
+		Assert.assertEquals(1, result);
+	}
+
 }
