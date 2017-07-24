@@ -20,7 +20,6 @@ public class SumOfTwoIntegersTest {
 	/**
 	 * Unit test for SumOfTwoIntegers with 2 and 3
 	 */
-	@Ignore
 	@Test
 	public void testTwoPlusThree() {
 		int result = solution.getSum(2, 3);
@@ -29,10 +28,19 @@ public class SumOfTwoIntegersTest {
 	}
 
 	/**
+	 * Unit test for SumOfTwoIntegers with 2 and 3
+	 */
+	@Test
+	public void testGetSum50() {
+		int result = solution.getSum(20, 30);
+
+		Assert.assertEquals(50, result);
+	}
+
+	/**
 	 * Unit test for SumOfTwoIntegers with example input
 	 */
-	@Ignore
-	@Test
+//	@Test
 	public void testExampleInput() {
 			
 		int result = solution.getSum(1, 2);

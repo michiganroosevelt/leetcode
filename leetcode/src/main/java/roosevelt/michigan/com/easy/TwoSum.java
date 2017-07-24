@@ -1,10 +1,8 @@
 package roosevelt.michigan.com.easy;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * Design and implement a TwoSum class. It should support the following

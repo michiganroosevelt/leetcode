@@ -7,6 +7,62 @@ import roosevelt.michigan.com.util.ListNodeUtil;
 
 public class ListNodeTest {
 
+	@Test
+	public void testRemoveLastNode() {
+		ListNode head = ListNodeUtil.build(new Integer[] { 1, 2, 3, 4 });
+		ListNode result = ListNodeUtil.removeNode(head, 3);
+		ListNode compare = ListNodeUtil.build(new Integer[] { 1, 2, 3 });
+
+		ListNodeUtil.assertEquals(compare, result);
+	}
+
+	@Test
+	public void testRemoveFirstNode() {
+		ListNode head = ListNodeUtil.build(new Integer[] { 1, 2, 3, 4 });
+		ListNode result = ListNodeUtil.removeNode(head, 0);
+		ListNode compare = ListNodeUtil.build(new Integer[] { 2, 3, 4 });
+
+		ListNodeUtil.assertEquals(compare, result);
+	}
+
+	@Test
+	public void testRemoveMiddleNode() {
+		ListNode head = ListNodeUtil.build(new Integer[] { 1, 2, 3, 4 });
+		ListNode result = ListNodeUtil.removeNode(head, 2);
+		ListNode compare = ListNodeUtil.build(new Integer[] { 1, 2, 4 });
+
+		ListNodeUtil.assertEquals(compare, result);
+	}
+
+	@Test
+	public void testAddNodeZero() {
+		ListNode head = ListNodeUtil.build(new Integer[] { 1, 2, 3, 4 });
+		ListNode result = ListNodeUtil.addNode(head, 10, 0);
+		ListNode compare = ListNodeUtil.build(new Integer[] { 10, 1, 2, 3, 4 });
+
+		ListNodeUtil.assertEquals(compare, result);
+	}
+
+	@Test
+	public void testAddNodeEnd() {
+		ListNode head = ListNodeUtil.build(new Integer[] { 1, 2, 3, 4 });
+
+		ListNode result = ListNodeUtil.addNode(head, 5, 4);
+
+		ListNode compare = ListNodeUtil.build(new Integer[] { 1, 2, 3, 4, 5 });
+		ListNodeUtil.assertEquals(compare, result);
+	}
+
+	@Test
+	public void testAddNodeMiddle() {
+		ListNode head = ListNodeUtil.build(new Integer[] { 1, 2, 3, 4 });
+
+		ListNode result = ListNodeUtil.addNode(head, 10, 2);
+
+		ListNode compare = ListNodeUtil.build(new Integer[] { 1, 2, 10, 3, 4 });
+		ListNodeUtil.assertEquals(compare, result);
+	}
+
 	@Test(expected = IndexOutOfBoundsException.class)
 	public void testGetIndexOutOfBounds() {
 		ListNode node1 = new ListNode(1);

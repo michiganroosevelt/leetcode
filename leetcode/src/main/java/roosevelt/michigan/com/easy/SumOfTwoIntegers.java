@@ -11,29 +11,45 @@ package roosevelt.michigan.com.easy;
  *
  */
 public class SumOfTwoIntegers {
-    public int getSum(int a, int b) {
-    	
-    	
-    	System.out.println("a is: " + Integer.toBinaryString(a));
-    	System.out.println("b is: " + Integer.toBinaryString(b));
-    	
-    	int or = a | b;
-    	System.out.println("or is: " + Integer.toBinaryString(or));
-    	int xor = a ^ b;
-    	System.out.println("xor is: " + Integer.toBinaryString(xor));
-    	int and = a & b;
-    	System.out.println("and is: " + Integer.toBinaryString(and));
-    	
-    	int a1 = or >> xor;
-    	System.out.println("a1 is: " + Integer.toBinaryString(a1));
-    	int a2 = and >> xor;
-    	System.out.println("a2 is: " + Integer.toBinaryString(a2));
-    	
-    	
-    	
-    	
-    	
-        
-    	return 1;
-    }
+	public int getSum(int a, int b) {
+		int[] digits = new int[32];
+		boolean carry = false;
+
+		for (int i = 0; i < 32; i++) {
+			System.out.println("a: " + Integer.toBinaryString(a));
+			System.out.println("b: " + Integer.toBinaryString(b));
+			
+			int aBit = a & 1;
+			int bBit = b & 1;
+
+			if ((aBit & bBit) == 1 && carry) {
+				digits[i] = 1;
+			} else if ((aBit & bBit) == 1) {
+				digits[i] = 0;
+				carry = true;
+			} else if ((aBit | bBit) == 1 & carry) {
+				digits[i] = 0;
+				carry = true;
+			} else if ((aBit | bBit) == 1) {
+				digits[i] = 1;
+				carry = false;
+			} else if (carry) {
+				digits[i] = 1;
+				carry = false;
+			} else {
+				digits[i] = 0;
+				carry = false;
+			}
+			a = a >> 1;
+			b = b >> 1;
+		}
+
+		int result = 0;
+		for (int i = 31; i >= 0; i--) {
+			result = result << 1;
+			result = result | digits[i];
+		}
+
+		return result;
+	}
 }

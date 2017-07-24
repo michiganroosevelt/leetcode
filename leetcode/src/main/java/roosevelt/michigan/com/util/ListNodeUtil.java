@@ -6,6 +6,51 @@ import roosevelt.michigan.com.common.ListNode;
 
 public class ListNodeUtil {
 
+	public static ListNode removeNode(ListNode head, int index) {
+		if (index == 0) {
+			ListNode tmp = head;
+			head = head.next;
+			tmp.next = null;
+			return head;
+		}
+
+		ListNode itr = head;
+		int counter = 0;
+		while (true) {
+			counter++;
+			if (counter == index) {
+				ListNode tmp = itr.next;
+				itr.next = tmp.next;
+				tmp.next = null;
+				return head;
+			}
+
+			itr = itr.next;
+		}
+	}
+
+	public static ListNode addNode(ListNode head, int val, int index) {
+		ListNode toAdd = new ListNode(val);
+		if (index == 0) {
+			ListNode newHead = toAdd;
+			newHead.next = head;
+			return newHead;
+		}
+
+		ListNode itr = head;
+		int counter = 0;
+		while (true) {
+			counter++;
+			if (counter == index) {
+				toAdd.next = itr.next;
+				itr.next = toAdd;
+				return head;
+			}
+			itr = itr.next;
+		}
+
+	}
+
 	public static ListNode build(Integer[] input) {
 		if (input == null || input.length <= 0) {
 			return null;
