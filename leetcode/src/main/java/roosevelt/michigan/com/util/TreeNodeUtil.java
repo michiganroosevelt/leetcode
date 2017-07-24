@@ -19,11 +19,11 @@ public class TreeNodeUtil {
 		}
 
 		if (t1 == null && t2 != null) {
-			Assert.fail("Nodes arent equal");
+			Assert.fail("TreeNodes aren't equal");
 		}
 
 		if (t1 != null && t2 == null) {
-			Assert.fail("Nodes arent equal");
+			Assert.fail("TreeNodes aren't equal");
 		}
 
 		Assert.assertEquals(t1.val, t2.val);

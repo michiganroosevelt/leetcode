@@ -8,30 +8,53 @@ package roosevelt.michigan.com.easy;
 public class AddStrings {
 
 	public String addStrings(String num1, String num2) {
-		boolean carry = false;
 		StringBuilder sb = new StringBuilder();
-		
-		int highest = num1.length() < num2.length() ? num2.length() : num1.length();
+		if (num1 == null || num1.length() < 0) {
+			return num2;
+		}
 
-		for (int i = highest - 1; i >= 0; i--) {
-			int a = Integer.parseInt(Character.toString(num1.charAt(i)));
-			int b = Integer.parseInt(Character.toString(num2.charAt(i)));
-			int add = a + b;
-			if (carry) {
-				add++;
-			}
-			if (add < 10) {
-				sb.append(add);
-				carry = false;
-			} else {
-				sb.append(add % 10);
+		if (num2 == null || num2.length() < 0) {
+			return num1;
+		}
+
+		int num1Length = num1.length();
+		int num2Length = num2.length();
+
+		int index = Math.min(num1Length, num2Length);
+		boolean carry = false;
+
+		for (int i = 0; i < index; i++) {
+			short value1 = Short.parseShort(Character.toString((num1.charAt(num1Length - i - 1))));
+			short value2 = Short.parseShort(Character.toString((num2.charAt(num2Length - i - 1))));
+
+			int carryVal = carry ? 1 : 0;
+			int sum = value1 + value2 + carryVal;
+
+			if (sum >= 10) {
 				carry = true;
+				sb.append(sum % 10);
+			} else {
+				carry = false;
+				sb.append(sum);
 			}
 		}
-		
-		
-		
-		if( carry ) {
+
+		String longest = num1Length >= num2Length ? num1 : num2;
+		for (int i = 0; i < longest.length() - index; i++) {
+			short value1 = Short.parseShort(Character.toString((longest.charAt(longest.length() - i - index - 1))));
+
+			int carryVal = carry ? 1 : 0;
+			int sum = value1 + carryVal;
+
+			if (sum >= 10) {
+				carry = true;
+				sb.append(sum % 10);
+			} else {
+				carry = false;
+				sb.append(sum);
+			}
+		}
+		if (carry) {
 			sb.append("1");
 		}
 
